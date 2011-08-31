@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block subtitle %}
+    <center> Relatorio por Atividade </center>
+{% endblock subtitle %}
+{% block conteudo %}
+<form action="/relatorio/" method="post">
+    <table class="form" frame="box" border="2">
+        <tr>
+        <h3> {{ atv }}</h3>
+        <td colspan="8" style="text-align: center; " bgcolor="#69b92d"> Relatório de Inscritos</td></tr>
+        <td><strong>ID</strong></td>
+        <td><strong>Nome</strong></td>
+        <td><strong>Matricula</strong></td>
+        <td><strong>Campus</strong></td>
+        <td><strong>Email</strong></td>
+        <td><strong>E-mail Enviado</strong></td>
+        <td><strong>Enviar E-mail</strong></td>
+        <td><strong>Participou</strong></td>
+        {% for estudante in estudante %}
+            <tr>
+                <td>{{ estudante.Codigo }}</td>
+                <td><a href="/estudante/{{ estudante.Codigo }}"><p align="Center">{{ estudante.Nome }}</p></a></p></td>
+                <td><p align="Center">{{ estudante.Matricula }}</p></td>
+                <td><p align="Center">{{ estudante.Campus }}</p></td>
+
+                <td><p align="Center">{{ estudante.Email }}</p></td>
+                <td><p align="Center">{{ estudante.email_env }}</p></td>
+                <td><strong><input id="botao" type="button" name="button" value="Enviar Email" onclick="window.location='/enviar-email/{{ estudante.Codigo }}'"></strong></td>
+                <td><a href="/estudante/{{estudante.Codigo}}/"><p align="Center">Alterar</a> - {{ estudante.participou }}</p></td>
+                <!--<td>{{ estudante.Data }}</td>-->
+            </tr>
+        {% endfor %}
+     </table></br>
+     <input id="botao" type="button" name="button" value="Voltar" onclick="window.location='/relatorio/'">
+</form>
+{% endblock conteudo %}

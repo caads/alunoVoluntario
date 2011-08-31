@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block subtitle %}
+    <center> Certificado </center>
+{% endblock subtitle %}
+{% block conteudo %}
+<script type="text/javascript" src="{{MEDIA_URL}}validaVoluntario.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+<form id="form" name="form" action="/emitir/{{c.Codigo}}/" method="post"> {% csrf_token %} 
+    <h3>Certificado</h3>
+    <ul>
+        Dados Estudante:<br>
+        <li>Nome: {{c.Nome}} <br></li>
+        <li>Celular: {{c.celular}} <br> </li>
+        <li>Email: {{c.Email}} <br> </li>
+        <li>Campus: {{c.Campus}} <br> </li>
+        <li>Matrícula : {{ c.Matricula }}</li>
+    </ul>
+        <b> Data de hoje: </b> <br>
+        {{f.data}} {{f.mes}} {{f.ano}} <br> <br>
+               
+		<p><div class="field">
+        	{{ f.numeroCert.errors }}
+       		<label for="numeroCert">Número:</label>
+				<div class="numeroCert" id="numeroCert" onKeyPress="return Apenas_Numeros(event);">        	
+	            	{{ f.numeroCert}}
+    			</div>
+		</div></p>
+
+        <p><div class="field">
+        	{{ f.livroCert.errors }}
+       		<label for="livroCert">Livro:</label>
+				<div class="livroCert" id="livroCert" onKeyPress="return Apenas_Numeros(event);">        	
+	            	{{ f.livroCert}}
+    			</div>
+		</div></p>
+
+        <p><div class="field">
+        	{{ f.dataCert.errors }}
+       		<label for="dataCert">Data:</label>
+				<div class="dataCert" id="dataCert" onKeyPress="formata_data(event);" onKeyPress="return Apenas_Numeros(event);">        	
+	            	{{ f.dataCert}}
+    			</div>
+		</div></p>
+        
+        {{ f.estudante }}
+<p><input id="botao" type="Submit" name="Submit" value="Gerar Certificado">
+- <a href="/principal_certificado"><input id="botao" type="button" name="Submit" value="Voltar a Certificados"></a></p>
+{% endblock %}

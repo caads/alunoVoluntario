@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block subtitle %}
+    <center> Editar Situação </center>
+{% endblock subtitle %}
+{% block conteudo %}
+<h3>Formulário de Apresentação do Participante</h3>
+{% if integrante %} 
+    <ul>           
+		<li>Nome : {{estudante.Nome }}</li>
+        <li>Celular : {{ estudante.celular }}</li>
+        <li>Email : {{ estudante.Email}}</li>
+        <li>Instituição : {{ estudante.Campus}}</li>
+    </ul>
+{% endif %}
+<form id="form" name="form" action="/editar_participante16/{{ codigo }}/" method="POST">{% csrf_token %}
+<div class="field">
+		<label for="Situacao">Situação Participante:</label>
+		<div class="situacao" >        	
+			{{ form.participacao }}
+		</div>
+</div>
+
+	<div class ="campos">
+        {{ form.bairro }}
+		{{ form.celular }}
+		{{ form.cep }}
+        {{ form.certificado }}
+        {{ form.cidade }}
+        {{ form.cpf }}
+        {{ form.email}}
+        {{ form.endereco }}
+        {{ form.id_inscritos }}
+		{{ form.instituicao }}
+		{{ form.nome }}
+        {{ form.outro_1 }}
+        {{ form.outro_2 }}
+        {{ form.palestra }}
+        {{ form.participou1}}
+        {{ form.participou3 }}
+        {{ form.telefone }}
+		{{ form.titulacao }}
+		{{ form.uf }}
+        {{ form.vinculo }}	
+    </div>
+
+	<p><input id="botao" type="Submit" name="Submit" value="Enviar"> - <input type="button" value="Voltar" onClick="history.go(-1)"></p>
+</form>
+{% endblock %}

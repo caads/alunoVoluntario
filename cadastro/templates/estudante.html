@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block subtitle %}
+{% endblock subtitle %}
+{% block conteudo %}
+<form action="/estudante/{{ codigo }}/" method="POST" class="uniForm"> {% csrf_token %}
+    <center>
+       <table class="form">
+        <p>Matricula : {{ f.Matricula }}<br>
+        Nome : {{ f.Nome }}<br>
+        Celular: {{ f.celular }} <br>
+        E-mail : {{ f.Email }}<br> 
+        Atividade : {{ form.Atividade }}<br>
+        Disponibilidade : {{ f.Disponibilidade }} <br>
+        Horario Inicial : {{ f.get_Horario_display }} <br>
+        Tamanho da Camisa : {{ f.Tamanho }} <br>
+        Datas : {{ f.get_Data_display }} <br>
+        Participou? {{ form.participacao }} <br>
+       </table>
+    </center>
+    {{ form.Codigo }}
+    {{ form.Matricula }}
+    {{ form.Nome }}
+    {{ form.celular }}
+    {{ form.Email }}
+    {{ form.Campus }}
+    {{ form.Disponibilidade }}
+    {{ form.Horario }}
+    {{ form.Horario_Fim }}
+    {{ form.Tamanho }}
+    {{ form.Data }}
+    {{ form.email_env }}
+    <input type="submit" name="submit" value="Salvar"/>
+    <a href="/relatorio/"> <input type="button" value="Voltar"/></a>
+</form>
+{% endblock %}

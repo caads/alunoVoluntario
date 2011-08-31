@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+<title>
+    {% block titulo %} Aluno Voluntario {% block title %}{% endblock title %}{% endblock titulo %}
+</title>
+    {% block style %}
+        <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}style.css" media="screen"/>
+    {% endblock style %}
+    {% block scripts %}
+        <script type="text/javascript" src="{{ MEDIA_URL }}validaVoluntario.js"></script>
+        <script type="text/javascript" src="{{ MEDIA_URL }}jquery.js"></script>
+        <script type="text/javascript" src="{{ MEDIA_URL }}maskedinput.js"></script>
+        <script type="text/javascript" src="{{ MEDIA_URL }}site.js"></script>
+    {% endblock scripts %}
+</head>
+<body>
+<div id="wrapper">
+    <div id="header">
+        <!--<div id="logo"><h1><a href="home"> CADS </a></h1> </div>-->
+	        <div id="menu">
+		        <ul>
+                    <li class="active"><a href="/">Inscrições</a></li>
+                    {% if user.is_authenticated %}
+                        <li class="active"><a href="/logout/" class="button">Deslogar</a></li>
+                    {% else %}
+                        <li class="active"><a href="/login">Login</a></li>
+                    {% endif %}
+                </ul>
+            </div> <!-- end #menu -->
+    </div> <!-- end #header -->
+    <div id="page">
+	    <div id="header-pic"></div>
+	    <div id="content">
+		    <div class="post">
+			    <h2 class="title"> {% block subtitle %}<center>  Aluno Voluntario </center> {% endblock subtitle %} </h2>
+                <div class="entry">                         
+                <br></br><center><img src="{{ MEDIA_URL }}iff.gif" alt="IFF" title="Instituto Federal Fluminense"/></center></br></br><br/>
+                    <center><h1>Cadastro Aluno Voluntário</h1>
+                    <h3>Semana do Saber Fazer Saber</h3>
+                    <h4>7 a 9 de setembro de 2011</h4></center>
+                    <center> {% block conteudo %} {% endblock conteudo %} </center>
+                </div>
+            </div>
+        </div> <!-- end #content -->
+        <div style="clear:both; margin:0;"></div>
+    </div> <!-- end #page -->
+</div>
+<div id="footer">
+<p> &copy; Coordenação Adjunta de Administração e Desenvolvimento de Sistemas - IFF Campos-Centro.
+<a href="http://www.djangoproject.com/"> Made with Django. </a></p>
+</div> <!-- end #footer -->
+</body>
+</html>   

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block subtitle %}
+    <center> Certificado </center>
+{% endblock subtitle %}
+{% block conteudo %}
+<h3>Certificado</h3><br>
+    {% for dados in part %}
+        {% if dados.participacao == "S" %}
+		  Certificado em PDF: <a href="/emitir/{{dados.Codigo}}/">{{ dados.Nome }}   </a><br><br>
+		{% endif %}
+	{% endfor %}
+    <p><a href="/principal_certificado"><input id="botao" type="button" name="Submit" value="Certificados"></a></p>
+{% endblock %}

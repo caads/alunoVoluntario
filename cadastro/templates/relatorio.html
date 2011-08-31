@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block subtitle %}
+    <center> Relatorio </center>
+{% endblock subtitle %}
+{% block conteudo %}
+<input id="botao" type="button" name="button" value="Gerar Certificados" onclick="window.location='/principal_certificado/'">
+<form action="/relatorio/" method="post">
+    <table class="form" frame="box" border="2">
+        <tr>
+        <td colspan="8" style="text-align: center; " bgcolor="#69b92d"> Relatorio de Estudantes </td></tr>
+        <td><strong><p align="Center">Inscritos por Atividade</p></a></strong></td>
+        <tr>
+        <td><a href="/relatorio-atividade/1"><p align="Center">Recepção aos Visitantes</p></a></p></td>
+        <tr>
+        <td><a href="/relatorio-atividade/2"><p align="Center">Recepcao aos Alunos Agendados para Visitas Guiadas</p></a></p></td>
+        <tr>
+        <td><a href="/relatorio-atividade/3"><p align="Center">Auxilio a Biblioteca</p></a></p></td>
+        <tr>
+        <td><a href="/relatorio-atividade/4"><p align="Center">Apoio a Atividades Academicas</p></a></p></td>
+        <tr>
+        <td><a href="/relatorio-atividade/5"><p align="Center">Apoio a Organizacao em Geral</p></a></p></td>
+        <tr>
+        <td><a href="/relatorio-atividade/6"><p align="Center">Apoio a Feitec</p></a></p></td>
+        <tr>
+        <td><a href="/relatorio-atividade/7"><p align="Center">Apoio a Mostre-se</p></a></p></td>
+        <tr>
+        <td><a href="/relatorio-atividade/8"><p align="Center">Apoio a Coordenação de Cultura</p></a></p></td>
+        <tr>
+        <td><a href="/relatorio-atividade/9"><p align="Center">Apoio a Curadoria Educativa</p></a></p></td>
+        <tr>
+        <td bgcolor="#69b92d"><strong><center><a href="/relatorio-inscritos/"><p align="Center">Todos os Inscritos</p></a></strong></td></center>
+     </table></br>
+     <input id="botao" type="button" name="button" value="Encerrar Sessão" onclick="window.location='/logout/'">
+</form>
+{% endblock conteudo %}

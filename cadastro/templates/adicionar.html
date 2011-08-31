@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block subtitle %}
+    <center> Inscrição </center>
+{% endblock subtitle %}
+{% block conteudo %}
+<center>
+<form action="/" method="post" class="uniForm"> {% csrf_token %}
+    <center>
+        <table class="form">
+            {{ form }}
+        </table>
+    </center>
+    <br>
+    <input type="Submit" value="Enviar">
+    <!--<input id="botao" type="button" name="Submit" value="Adicionar" onclick="validaCampos();">-->
+</form>
+</center>
+{% endblock %}
